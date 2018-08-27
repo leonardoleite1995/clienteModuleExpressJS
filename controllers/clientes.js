@@ -15,9 +15,9 @@ module.exports = function(app){
 
     app.post('/clientes/cliente', function(req, res){
 
-        req.assert('cliente.nome', 'Campo Nome é obrigatorio').notEmpty();
-        req.assert('cliente.cpf', 'Campo CPF é obrigatório').notEmpty();
-        req.assert('cliente.sexo', 'Campo Sexo é obrigatório').notEmpty();
+        req.assert('cliente.nome', 'Campo Nome é obrigatorio').notEmpty().trim();
+        req.assert('cliente.cpf', 'Campo CPF é obrigatório').notEmpty().trim();
+        req.assert('cliente.sexo', 'Campo Sexo é obrigatório').notEmpty().trim();
         req.assert('cliente.dataNascimento', 'Campo Data de nascimento deve conter uma data válida').notEmpty().toDate();
         req.assert('cliente.email', 'Campo Email deve conter um email válido').isEmail();
         req.assert('cliente.senha', 'Campo Senha é obrigatório').notEmpty();
